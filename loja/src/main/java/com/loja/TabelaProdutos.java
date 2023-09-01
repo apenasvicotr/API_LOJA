@@ -1,5 +1,8 @@
 package com.loja;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.awt.color.ProfileDataException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +46,17 @@ public class TabelaProdutos {
         }
         return produtoProcurado;
     }
+
+    public Produto cadastrarNovoProduto(Produto novoProduto){
+        int ultimoIndex = this.produtos.size() - 1;
+        Produto ultimoProduto = this.produtos.get(ultimoIndex);
+        int proximoId = ultimoProduto.getId() + 1;
+
+        novoProduto.setId(proximoId);
+        this.produtos.add(novoProduto);
+        return novoProduto;
+    }
+
 
 }
 
