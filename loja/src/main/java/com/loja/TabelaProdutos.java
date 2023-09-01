@@ -1,5 +1,6 @@
 package com.loja;
 
+import java.awt.color.ProfileDataException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +15,14 @@ public class TabelaProdutos {
         Produto lapis = new Produto(3, "Lápis Faber Castell", "Lápis Faber Castell comum", 2.99);
         Produto apontador = new Produto(4, "Apontador", "Apontador com reservatório", 7.99);
         Produto caderno = new Produto(5, "Caderno Espiral", "Caderno espiral de 96 folhas", 15.99);
+        Produto controle = new Produto(6, "Controle Projetor", "Controle de Projetor", 69.99);
 
         this.produtos.add(caneta);
         this.produtos.add(borracha);
         this.produtos.add(lapis);
         this.produtos.add(apontador);
         this.produtos.add(caderno);
+        this.produtos.add(controle);
     }
 
     public List<Produto> getProdutos() {
@@ -30,4 +33,16 @@ public class TabelaProdutos {
         return this.getProdutos();
     }
 
+    public Produto buscarProdutoPeloId(int produtoId){
+        Produto produtoProcurado = null;
+        for (Produto p: this.produtos) {
+            if (p.getId() == produtoId){
+                produtoProcurado = p;
+                break;
+            }
+        }
+        return produtoProcurado;
+    }
+
 }
+
