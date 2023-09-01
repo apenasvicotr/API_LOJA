@@ -30,5 +30,10 @@ public class ProdutoController {
         return this.tabelaProdutos.cadastrarNovoProduto(dadosNovoProduto);
     }
 
+    @PutMapping("/{produtoId}")
+    public void atualizarProdutoNaLoja(@PathVariable int produtoId,
+                                       @RequestBody Produto dadosAtualizarProduto) {
+        this.tabelaProdutos.atualizarProdutos(produtoId, dadosAtualizarProduto);
+    }
 
 }
